@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/detailFragment">
 
+    <fragment
+        android:id="@+id/detailFragment"
+        android:name="com.maxapps.viewmodelcodelabs.ui.DetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_addListFragment"
+            app:destination="@id/addListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addListFragment"
+        android:name="com.maxapps.viewmodelcodelabs.ui.AddListFragment"
+        android:label="fragment_add_list"
+        tools:layout="@layout/fragment_add_list" />
 </navigation>

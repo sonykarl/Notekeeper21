@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/HARRIS/AndroidStudioProjects/viewmodelcodelabs/app/src/main/res/layout/activity_main.xml" value="0.129981884057971" />
+        <entry key="..\:/Users/HARRIS/AndroidStudioProjects/viewmodelcodelabs/app/src/main/res/layout/fragment_add_list.xml" value="0.12318840579710146" />
+        <entry key="..\:/Users/HARRIS/AndroidStudioProjects/viewmodelcodelabs/app/src/main/res/layout/fragment_detail.xml" value="0.18489583333333334" />
+        <entry key="..\:/Users/HARRIS/AndroidStudioProjects/viewmodelcodelabs/app/src/main/res/layout/listitems.xml" value="0.12318840579710146" />
       </map>
     </option>
   </component>
