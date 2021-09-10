@@ -20,9 +20,9 @@ class DetailFragment : Fragment() {
 
         val view = inflater.inflate(R.layout.fragment_detail, container, false)
         fab = view.findViewById(R.id.floatingActionButton)
-        fab.setOnClickListener{
+        fab.setOnClickListener(
             Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addListFragment)
-        }
+            )
         return view
     }
  }
