@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="Name" />
+        android:hint="title" />
 
     <EditText
         android:id="@+id/bodyText"
@@ -22,7 +22,7 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Name" />
+        android:hint="body" />
 
     <Button
         android:id="@+id/savebutton"

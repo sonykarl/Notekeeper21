@@ -16,12 +16,12 @@ class RvAdapter(private val journal: ArrayList<Journals>): RecyclerView.Adapter<
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        var itemview = LayoutInflater.from(parent.context).inflate(R.layout.listitems, parent, false)
+        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.listitems, parent, false)
         return MyViewHolder(itemview)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        var currentitem = journal[position]
+        val currentitem = journal[position]
         holder.title.text = currentitem.title
         holder.body.text = currentitem.body
     }
