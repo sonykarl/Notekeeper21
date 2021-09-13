@@ -7,17 +7,19 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.maxapps.viewmodelcodelabs.R
 import com.maxapps.viewmodelcodelabs.database.Journals
+import com.maxapps.viewmodelcodelabs.databinding.ListitemsBinding
 
 class RvAdapter(private val journal: ArrayList<Journals>): RecyclerView.Adapter<RvAdapter.MyViewHolder>(){
-    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
-        var title: TextView = itemView.findViewById(R.id.titleView)
-        var body: TextView = itemView.findViewById(R.id.bodyView)
+    inner class MyViewHolder( binding: ListitemsBinding) : RecyclerView.ViewHolder(binding.root){
+
+        var title = binding.titleView
+        var body = binding.bodyView
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemview = LayoutInflater.from(parent.context).inflate(R.layout.listitems, parent, false)
-        return MyViewHolder(itemview)
+        val binding = ListitemsBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return MyViewHolder(binding)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {

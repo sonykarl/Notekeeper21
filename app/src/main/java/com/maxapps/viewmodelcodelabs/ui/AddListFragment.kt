@@ -8,41 +8,26 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
 import com.maxapps.viewmodelcodelabs.R
+import com.maxapps.viewmodelcodelabs.databinding.FragmentAddListBinding
 import com.maxapps.viewmodelcodelabs.viewmodel.JournalViewModel
 
 
 class AddListFragment : Fragment() {
-
-    private lateinit var savebutton: Button
-    private lateinit var title: EditText
-    private lateinit var body: EditText
-    private lateinit var viewModel: JournalViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view = inflater.inflate(R.layout.fragment_add_list, container, false)
+        val binding = FragmentAddListBinding.inflate(inflater,container,false)
+        val viewModel = ViewModelProvider(this).get(JournalViewModel::class.java)
 
-        title = view.findViewById(R.id.titleText)
-        body = view.findViewById(R.id.bodyText)
-        viewModel = ViewModelProvider(this).get(JournalViewModel::class.java)
-        savebutton = view.findViewById(R.id.savebutton)
-        savebutton.setOnClickListener{
-
-            viewModel.insert(title.text.toString(),body.text.toString())
-            title.text.clear()
-            body.text.clear()
+        binding.savebutton.setOnClickListener{
+            viewModel.insert(binding.titleText.text.toString(), binding.bodyText.text.toString())
         }
-        return view
-    }
 
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        if (outState != null){
-        }
+        return binding.root
     }
-
 }

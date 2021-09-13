@@ -12,32 +12,24 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.maxapps.viewmodelcodelabs.R
 import com.maxapps.viewmodelcodelabs.database.repository
+import com.maxapps.viewmodelcodelabs.databinding.ActivityMainBinding
+import com.maxapps.viewmodelcodelabs.databinding.FragmentDetailBinding
 import com.maxapps.viewmodelcodelabs.viewmodel.JournalViewModel
 
 class DetailFragment : Fragment() {
-
-    private lateinit var fab: FloatingActionButton
-    private lateinit var recyclerView: RecyclerView
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
 
-        val view = inflater.inflate(R.layout.fragment_detail, container, false)
+        val binding = FragmentDetailBinding.inflate(inflater,container,false)
 
-        fab = view.findViewById(R.id.floatingActionButton)
-        recyclerView = view.findViewById(R.id.recyclerView)
-
-        recyclerView.apply {
-            layoutManager = LinearLayoutManager(activity)
+        binding.recyclerView.apply {
             adapter = RvAdapter(repository)
+            layoutManager = LinearLayoutManager(activity)
         }
-        fab.setOnClickListener(
-            Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addListFragment)
-            )
-        return view
+        return binding.root
     }
  }
 
