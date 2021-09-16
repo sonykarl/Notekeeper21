@@ -18,5 +18,6 @@
         android:id="@+id/addListFragment"
         android:name="com.maxapps.viewmodelcodelabs.ui.AddListFragment"
         android:label="fragment_add_list"
-        tools:layout="@layout/fragment_add_list" />
+        tools:layout="@layout/fragment_add_list" >
+    </fragment>
 </navigation>
