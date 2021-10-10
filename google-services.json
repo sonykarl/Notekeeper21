@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "283925085999",
+    "project_id": "notes-application-16ec2",
+    "storage_bucket": "notes-application-16ec2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283925085999:android:2cbc4ed417e70692d9ebda",
+        "android_client_info": {
+          "package_name": "com.maxapps.viewmodelcodelabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283925085999-u10qb9cs3821be3sqem8t80o3gofl0ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXPhJyz0OxsDVTknge1UhphIIsC1gFkhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283925085999-u10qb9cs3821be3sqem8t80o3gofl0ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
