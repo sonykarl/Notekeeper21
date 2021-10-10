@@ -38,7 +38,7 @@ class Add_Fragment : Fragment() {
     fun saveFirestore(title:String, body:String){
 
         val db = FirebaseFirestore.getInstance()
-        val notes = hashMapOf( "Title" to "$title", "Body" to "$body")
+        val notes = hashMapOf( "Title" to title, "Body" to body)
 
         db.collection("Notes").document("$title").set(notes).addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
             .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
