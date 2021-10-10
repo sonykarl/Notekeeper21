@@ -32,7 +32,7 @@ class Add_Fragment : Fragment() {
 
     fun saveFirestore(title:String, body:String){
         val db = FirebaseFirestore.getInstance()
-        val notes: MutableMap<String, Any> = HashMap()
+        val notes: MutableMap<String, String> = HashMap()
         notes["Title"] = title
         notes["Body"] = body
 
