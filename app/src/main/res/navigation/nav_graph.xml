@@ -11,13 +11,16 @@
         android:label="fragment_detail"
         tools:layout="@layout/fragment_detail" >
         <action
-            android:id="@+id/action_detailFragment_to_addListFragment"
-            app:destination="@id/addListFragment" />
+            android:id="@+id/action_detailFragment_to_add_Fragment"
+            app:destination="@id/add_Fragment" />
     </fragment>
     <fragment
-        android:id="@+id/addListFragment"
-        android:name="com.maxapps.viewmodelcodelabs.ui.AddListFragment"
-        android:label="fragment_add_list"
-        tools:layout="@layout/fragment_add_list" >
+        android:id="@+id/add_Fragment"
+        android:name="com.maxapps.viewmodelcodelabs.ui.Add_Fragment"
+        android:label="fragment_add_"
+        tools:layout="@layout/fragment_add_" >
+        <action
+            android:id="@+id/action_add_Fragment_to_detailFragment"
+            app:destination="@id/detailFragment" />
     </fragment>
 </navigation>

@@ -26,35 +26,15 @@ class DetailFragment : Fragment() {
 
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
         repository = arrayListOf()
-
+        myAdapter = RvAdapter(repository)
         binding.recyclerView.apply {
             adapter = RvAdapter(repository)
             layoutManager = LinearLayoutManager(activity)
         }
 
-        EventChangeListener()
-
+        binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_add_Fragment))
         return binding.root
 
-    }
-
-    private fun EventChangeListener(){
-        db = FirebaseFirestore.getInstance()
-        db.collection("Notes").addSnapshotListener(object: EventListener<QuerySnapshot>{
-            override fun onEvent(value: QuerySnapshot?, error: FirebaseFirestoreException?) {
-                if (error != null){
-                    Log.e("Firestore Error", error.message.toString())
-                    return
-                }
-
-                for (dc: DocumentChange in  value?.documentChanges!!){
-                    if (dc.type == DocumentChange.Type.ADDED){
-                        repository.add(dc.document.toObject(Notes::class.java))
-                    }
-                }
-                myAdapter.notifyDataSetChanged()
-            }
-        })
     }
 }
 
