@@ -17,6 +17,7 @@ import com.maxapps.viewmodelcodelabs.databinding.FragmentDetailBinding
 import com.maxapps.viewmodelcodelabs.viewmodel.JournalViewModel
 
 class DetailFragment : Fragment() {
+    private lateinit var db: FirebaseFirestore
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
