@@ -34,7 +34,6 @@ class DetailFragment : Fragment() {
 
         EventChangeListener()
 
-        binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_addListFragment))
         return binding.root
 
     }
