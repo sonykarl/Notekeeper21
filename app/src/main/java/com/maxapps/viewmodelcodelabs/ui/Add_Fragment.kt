@@ -1,6 +1,8 @@
 package com.maxapps.viewmodelcodelabs.ui
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -21,24 +23,25 @@ class Add_Fragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentAddBinding.inflate(inflater, container, false)
 
-        val title = binding.titleText.text.toString()
-        val body = binding.bodyText.text.toString()
+
         binding.button.setOnClickListener{
+
+            val title = binding.titleText.text.toString()
+            val body = binding.bodyText.text.toString()
             saveFirestore(title, body)
+
         }
 
         return binding.root
     }
 
     fun saveFirestore(title:String, body:String){
+
         val db = FirebaseFirestore.getInstance()
-        val notes: MutableMap<String, String> = HashMap()
-        notes["Title"] = title
-        notes["Body"] = body
+        val notes = hashMapOf( "Title" to "$title", "Body" to "$body")
 
-        db.collection("Notes")
-            .add(notes)
-
+        db.collection("Notes").document("$title").set(notes).addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully written!") }
+            .addOnFailureListener { e -> Log.w(TAG, "Error writing document", e) }
     }
 }
 
