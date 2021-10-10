@@ -1,15 +1,12 @@
 package com.maxapps.viewmodelcodelabs.ui
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.maxapps.viewmodelcodelabs.R
-import com.maxapps.viewmodelcodelabs.database.Journals
+import com.maxapps.viewmodelcodelabs.database.Notes
 import com.maxapps.viewmodelcodelabs.databinding.ListitemsBinding
 
-class RvAdapter(private val journal: ArrayList<Journals>): RecyclerView.Adapter<RvAdapter.MyViewHolder>(){
+class RvAdapter(private val journal: ArrayList<Notes>): RecyclerView.Adapter<RvAdapter.MyViewHolder>(){
 
     inner class MyViewHolder( binding: ListitemsBinding) : RecyclerView.ViewHolder(binding.root){
 
