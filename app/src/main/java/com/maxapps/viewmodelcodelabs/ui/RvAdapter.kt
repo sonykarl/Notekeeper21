@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.maxapps.viewmodelcodelabs.database.Notes
 import com.maxapps.viewmodelcodelabs.databinding.ListitemsBinding
 
-class RvAdapter(private val journal: ArrayList<Notes>): RecyclerView.Adapter<RvAdapter.MyViewHolder>(){
+class RvAdapter(private val notes: ArrayList<Notes>): RecyclerView.Adapter<RvAdapter.MyViewHolder>(){
 
     inner class MyViewHolder( binding: ListitemsBinding) : RecyclerView.ViewHolder(binding.root){
 
@@ -20,10 +20,10 @@ class RvAdapter(private val journal: ArrayList<Notes>): RecyclerView.Adapter<RvA
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentitem = journal[position]
+        val currentitem = notes[position]
         holder.title.text = currentitem.title
         holder.body.text = currentitem.body
     }
 
-    override fun getItemCount() = journal.size
+    override fun getItemCount() = notes.size
 }
