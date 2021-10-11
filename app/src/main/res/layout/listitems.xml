@@ -17,13 +17,15 @@
             android:id="@+id/titleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/bodyView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textColor="@color/black" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>
