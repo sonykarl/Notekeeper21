@@ -16,7 +16,7 @@ import com.maxapps.viewmodelcodelabs.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
 
-    private val noteslist = ArrayList<Notes>()
+    val noteslist = ArrayList<Notes>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,17 +25,13 @@ class DetailFragment : Fragment() {
 
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
 
+        FetchData()
 
-
-
-
-        binding.fetchButton.setOnClickListener {
-            FetchData()
-            binding.recyclerView.apply {
-                adapter = RvAdapter(noteslist)
-                layoutManager = LinearLayoutManager(activity)
-            }
+        binding.recyclerView.apply {
+            adapter = RvAdapter(noteslist)
+            layoutManager = LinearLayoutManager(activity)
         }
+
         binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_add_Fragment))
         return binding.root
 
