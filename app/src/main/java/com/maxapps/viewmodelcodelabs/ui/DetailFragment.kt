@@ -17,6 +17,7 @@ import com.maxapps.viewmodelcodelabs.databinding.FragmentDetailBinding
 class DetailFragment : Fragment() {
 
     val noteslist = ArrayList<Notes>()
+    private var adapter: RvAdapter ?= null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,18 +28,7 @@ class DetailFragment : Fragment() {
 
         FetchData()
 
-        binding.recyclerView.apply {
-            adapter = RvAdapter(noteslist)
-            layoutManager = LinearLayoutManager(activity)
-        }
-
-        binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_add_Fragment))
-        return binding.root
-
-    }
-    private fun FetchData() {
         val db = FirebaseFirestore.getInstance()
-
         db.collection("Notes")
             .get()
             .addOnSuccessListener {result ->
@@ -46,7 +36,17 @@ class DetailFragment : Fragment() {
                     val note = document.toObject(Notes::class.java)
                     noteslist.add(note)
                 }
+                binding.recyclerView.apply {
+                    adapter = RvAdapter(noteslist)
+                    layoutManager = LinearLayoutManager(activity)
+                }
             }
+
+        binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_add_Fragment))
+        return binding.root
+
+    }
+    private fun FetchData() {
 
 
             }
