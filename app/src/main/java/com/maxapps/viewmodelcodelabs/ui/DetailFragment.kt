@@ -27,13 +27,14 @@ class DetailFragment : Fragment() {
 
 
 
-        binding.recyclerView.apply {
-            adapter = RvAdapter(noteslist)
-            layoutManager = LinearLayoutManager(activity)
-        }
+
 
         binding.fetchButton.setOnClickListener {
             FetchData()
+            binding.recyclerView.apply {
+                adapter = RvAdapter(noteslist)
+                layoutManager = LinearLayoutManager(activity)
+            }
         }
         binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_add_Fragment))
         return binding.root
