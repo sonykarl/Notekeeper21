@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.collection.arraySetOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.ktx.toObject
 import com.maxapps.viewmodelcodelabs.R
 import com.maxapps.viewmodelcodelabs.database.Notes
 import com.maxapps.viewmodelcodelabs.databinding.FragmentDetailBinding
@@ -16,7 +18,6 @@ import com.maxapps.viewmodelcodelabs.databinding.FragmentDetailBinding
 
 class DetailFragment : Fragment() {
 
-    val noteslist = ArrayList<Notes>()
     private var adapter: RvAdapter ?= null
 
     override fun onCreateView(
@@ -25,19 +26,18 @@ class DetailFragment : Fragment() {
     ): View? {
 
         val binding = FragmentDetailBinding.inflate(inflater, container, false)
-
-        FetchData()
-
         val db = FirebaseFirestore.getInstance()
+        var notelist = arrayListOf<Notes>()
+
         db.collection("Notes")
             .get()
             .addOnSuccessListener {result ->
                 for (document in result){
-                    val note = document.toObject(Notes::class.java)
-                    noteslist.add(note)
+                    val note = document.toObject<Notes>()
+                    notelist.add(note)
                 }
                 binding.recyclerView.apply {
-                    adapter = RvAdapter(noteslist)
+                    adapter = RvAdapter(notelist)
                     layoutManager = LinearLayoutManager(activity)
                 }
             }
@@ -46,11 +46,6 @@ class DetailFragment : Fragment() {
         return binding.root
 
     }
-    private fun FetchData() {
-
-
-            }
-
 
 }
 
