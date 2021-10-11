@@ -30,14 +30,17 @@ class DetailFragment : Fragment() {
 
         db.collection("Notes")
             .get()
-            .addOnSuccessListener {
-                for (document in it){
-                    val note = document.toObject<Notes>()
-                    notelist.add(note)
-                    binding.recyclerView.adapter = RvAdapter(notelist)
-                    binding.recyclerView.layoutManager = LinearLayoutManager(activity)
-                }
+            .addOnSuccessListener { documents ->
+                documents.forEach {
+                    it.toObject(Notes::class.java).let { entity ->
+                        notelist.add(entity)
+                    }
 
+                    binding.recyclerView.apply {
+                        adapter = RvAdapter(notelist)
+                        layoutManager = LinearLayoutManager(activity)
+                    }
+                }
             }
 
         binding.floatingActionButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_detailFragment_to_add_Fragment))
