@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.collection.arraySetOf
 import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.firestore.*
@@ -31,8 +30,8 @@ class DetailFragment : Fragment() {
 
         db.collection("Notes")
             .get()
-            .addOnSuccessListener {result ->
-                for (document in result){
+            .addOnSuccessListener {
+                for (document in it){
                     val note = document.toObject<Notes>()
                     notelist.add(note)
                 }
